@@ -1,0 +1,43 @@
+.header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+
+  padding: 24px 0;
+
+  border-bottom: 1px solid var(--Badges, #f2f4f7);
+  background: var(--Inputs, #f7f7f7);
+}
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 450px;
+}
+
+.list {
+  display: flex;
+  gap: 32px;
+}
+
+.cart {
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.link {
+  color: #101828;
+}
+
+.active {
+  color: #d84343;
+}

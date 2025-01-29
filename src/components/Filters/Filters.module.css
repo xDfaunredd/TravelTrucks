@@ -1,0 +1,115 @@
+.catalogContainer {
+  margin-top: 48px;
+}
+
+.selectWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 360px;
+}
+
+.customSelect {
+  margin-top: 8px;
+  margin-bottom: 40px;
+  flex-grow: 1;
+  padding: 18px 20px 18px 50px; /* Змістив текст через іконку */
+  background-color: #f7f7f7;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none; /* Прибирає стандартну стрілку */
+}
+
+.selectIcon {
+  position: absolute;
+  left: 20px;
+  top: 25px;
+  width: 20px;
+  height: 20px;
+  pointer-events: none;
+}
+
+.filterType {
+  color: var(--Gray, #6c717b);
+
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 150% */
+}
+
+.vehicleType {
+  color: var(--Main, #101828);
+
+  /* H3 */
+
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px; /* 120% */
+  padding-bottom: 24px;
+  margin-bottom: 24px;
+  margin-top: 32px;
+  border-bottom: 1px solid var(--Gray-light, #dadde1);
+  width: 360px;
+}
+
+.countryLabel {
+  margin-left: 10px;
+  font-size: 16px;
+  color: #555;
+}
+.searchButton {
+  cursor: pointer;
+  display: flex;
+  width: 166px;
+  padding: 16px 60px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+
+  margin-top: 40px;
+
+  border-radius: 200px;
+  background: var(--Button, #e44848);
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+.list {
+  display: flex;
+  gap: 8px;
+  width: 360px;
+
+  flex-wrap: wrap;
+}
+
+.item {
+  display: flex;
+  gap: 8px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 12px;
+  border: 1px solid var(--Gray-light, #dadde1);
+
+  padding: 16px 40px;
+  width: 112px;
+}
+
+li svg {
+  margin-right: 5px;
+}
+
+.selected {
+  border: 1px solid var(--Button, #e44848);
+}
