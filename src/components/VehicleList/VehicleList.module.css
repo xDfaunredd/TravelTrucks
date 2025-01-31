@@ -1,5 +1,34 @@
-.selectIcon {
-  width: 15px;
-  height: 15px;
-  pointer-events: none;
+.vehicleContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.loadMoreBtn {
+  padding: 16px 32px;
+  justify-content: center;
+  background-color: transparent;
+  width: 145px;
+
+  border-radius: 200px;
+  border: 1px solid var(--Gray-light, #dadde1);
+
+  color: var(--Main, #101828);
+  cursor: pointer;
+  /* Button */
+
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px; /* 150% */
+  letter-spacing: -0.08px;
 }

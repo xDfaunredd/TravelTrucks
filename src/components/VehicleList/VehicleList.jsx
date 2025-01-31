@@ -1,32 +1,29 @@
-import sprite from "../../assets/sprite.svg";
+import { useDispatch, useSelector } from "react-redux";
+import VehicleItem from "../VehicleItem/VehicleItem";
 import s from "./VehicleList.module.css";
+import { setPage } from "../../redux/filters/filterSlise";
 
 const VehicleList = ({ results }) => {
-  return (
-    <ul>
-      {results.map((result) => (
-        <li key={result.id}>
-          <img src={`${result.gallery[0].original}`} alt="" />
-          <h2>{result.name}</h2>
-          <p>${result.price}</p>
+  const dispatch = useDispatch();
+  const { totalCamps, page } = useSelector((state) => state.filters);
+  const maxPages = totalCamps / 4 > page;
+  console.log(totalCamps, page);
 
-          <p>
-            <svg>
-              <use></use>
-            </svg>
-            {`${result.rating} (${result.reviews.length} Reviews)`}
-          </p>
-          <p>
-            {" "}
-            <svg className={s.selectIcon}>
-              <use href={`${sprite}#icon-location`}></use>
-            </svg>{" "}
-            {result.location}
-          </p>
-          <p>{result.description}</p>
-        </li>
-      ))}
-    </ul>
+  return (
+    <div className={s.vehicleContainer}>
+      <ul className={s.list}>
+        {results.map((result) => (
+          <li key={result.id} className={s.item}>
+            <VehicleItem camperInfo={result} />
+          </li>
+        ))}
+      </ul>
+      {maxPages && (
+        <button className={s.loadMoreBtn} onClick={() => dispatch(setPage())}>
+          Load more
+        </button>
+      )}
+    </div>
   );
 };
 

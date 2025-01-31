@@ -1,44 +1,72 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { getCampers } from "./filterOperations";
 
 const initialState = {
-  location: "kyiv", // Початкове значення локації
-  equipment: [], // Поки що без вибраного обладнання
-  vehicleType: [], // Поки що без вибраного типу транспорту
-  results: [], // Пошукові результати
+  location: "",
+  equipment: [],
+  vehicleType: "",
+  params: "",
+  page: 1,
+  results: [],
+  totalCamps: 0,
+  isLoading: false,
+  error: null,
 };
 
-const filtersSlice = createSlice({
+const filterSlice = createSlice({
   name: "filters",
   initialState,
   reducers: {
     setLocation: (state, action) => {
-      state.location = action.payload; // Оновлюємо локацію
+      state.location = action.payload;
     },
     toggleEquipment: (state, action) => {
-      const index = state.equipment.indexOf(action.payload);
-      if (index === -1) {
-        state.equipment.push(action.payload);
-      } else {
-        state.equipment.splice(index, 1);
-      }
+      const item = action.payload;
+      state.equipment.includes(item)
+        ? (state.equipment = state.equipment.filter((eq) => eq !== item))
+        : state.equipment.push(item);
     },
     toggleVehicleType: (state, action) => {
-      if (state.vehicleType.length > 0) {
-        state.vehicleType = [];
-      }
-      const index = state.vehicleType.indexOf(action.payload);
-      if (index === -1) {
-        state.vehicleType.push(action.payload);
-      } else {
-        state.vehicleType.splice(index, 1);
-      }
+      state.vehicleType =
+        state.vehicleType === action.payload ? "" : action.payload;
     },
-    setResults: (state, action) => {
-      state.results = action.payload; // Оновлюємо результати пошуку
+    setPage: (state) => {
+      state.page += 1;
     },
+    setParams: (state, action) => {
+      state.results = [];
+      state.page = 1;
+      state.params = action.payload;
+      console.log(state.params);
+    },
+  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(getCampers.pending, (state) => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(getCampers.fulfilled, (state, action) => {
+        state.isLoading = false;
+
+        state.page > 1
+          ? (state.results = [...state.results, ...action.payload.items])
+          : (state.results = action.payload.items);
+
+        state.totalCamps = action.payload.total;
+      })
+      .addCase(getCampers.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      });
   },
 });
 
-export const { setLocation, toggleEquipment, toggleVehicleType, setResults } =
-  filtersSlice.actions;
-export default filtersSlice.reducer;
+export const {
+  setLocation,
+  toggleEquipment,
+  toggleVehicleType,
+  setParams,
+  setPage,
+} = filterSlice.actions;
+export default filterSlice.reducer;
