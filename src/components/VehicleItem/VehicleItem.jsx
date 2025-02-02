@@ -1,23 +1,24 @@
+/* eslint-disable react/prop-types */
+
 import { useDispatch, useSelector } from "react-redux";
 import sprite from "../../assets/sprite.svg";
 import s from "./VehicleItem.module.css";
-
 import { toggleFavorite } from "../../redux/favorites/favoritesSlice";
 import { Link } from "react-router-dom";
+import { selectFavorites } from "../../redux/selectors";
 
 const VehicleItem = ({ camperInfo }) => {
   const { gallery, name, price, id, rating, reviews, location, description } =
     camperInfo;
 
-  const { favoriteItems } = useSelector((state) => state.favorites);
+  const { favoriteItems } = useSelector(selectFavorites);
 
   const dispatch = useDispatch();
 
-  const isFavorite = favoriteItems?.includes(id);
+  const isFavorite = favoriteItems.includes(id);
 
   const handleFavoriteClick = () => {
     dispatch(toggleFavorite(id));
-    console.log(favoriteItems);
   };
 
   const features = Object.entries(camperInfo)
@@ -33,7 +34,7 @@ const VehicleItem = ({ camperInfo }) => {
         <div className={s.header}>
           <h2 className={s.title}>{name}</h2>
           <div className={s.priceSection}>
-            <p className={s.price}>&euro;{price}</p>
+            <p className={s.price}>&euro;{price}.00</p>
             <button className={s.iconHeartBtn} onClick={handleFavoriteClick}>
               {isFavorite ? (
                 <svg className={s.icon}>
@@ -76,7 +77,7 @@ const VehicleItem = ({ camperInfo }) => {
             </li>
           ))}
         </ul>
-        <Link className={s.showMoreButton} to={`/catalog/${id}`}>
+        <Link className={s.showMoreButton} to={`/catalog/${id}/features`}>
           Show more
         </Link>
       </div>

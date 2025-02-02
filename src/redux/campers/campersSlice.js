@@ -4,6 +4,7 @@ import { fetchICampersById } from "./campersOps";
 const initialState = {
   camper: {},
   error: null,
+  isLoading: false,
 };
 
 const campersSlice = createSlice({
@@ -12,10 +13,15 @@ const campersSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchICampersById.fulfilled, (state, action) => {
+        state.isLoading = false;
         state.camper = action.payload;
-        console.log(state.camper);
+      })
+      .addCase(fetchICampersById.pending, (state) => {
+        state.isLoading = true;
       })
       .addCase(fetchICampersById.rejected, (state, action) => {
+        state.isLoading = false;
+
         state.error = action.payload;
       });
   },

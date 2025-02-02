@@ -8,12 +8,12 @@ import {
   toggleVehicleType,
 } from "../../redux/filters/filterSlise.js";
 import { applyFilters } from "../../utils/applyFilters.js";
+import toast from "react-hot-toast";
+import { selectFilters } from "../../redux/selectors.js";
 
 const Filters = () => {
   const dispatch = useDispatch();
-  const { location, equipment, vehicleType } = useSelector(
-    (state) => state.filters
-  );
+  const { location, equipment, vehicleType } = useSelector(selectFilters);
 
   return (
     <div>
@@ -28,10 +28,19 @@ const Filters = () => {
           className={s.customSelect}
         >
           <option value="">City</option>
-          <option value="Kyiv">Kyiv, Ukraine</option>
-          <option value="Lviv">Lviv, Ukraine</option>
-          <option value="Odesa">Odesa, Ukraine</option>
-          <option value="Kharkiv">Kharkiv, Ukraine</option>
+          {[
+            "Lviv, Ukraine",
+            "Dnipro, Ukraine",
+            "Odesa, Ukraine",
+            "Kyiv, Ukraine",
+            "Poltava, Ukraine",
+            "Kharkiv, Ukraine",
+            "Sumy, Ukraine",
+          ].map((item, i) => (
+            <option key={i} value={`${item.split(",")[0]}`}>
+              {item}
+            </option>
+          ))}
         </select>
       </div>
 
@@ -59,7 +68,7 @@ const Filters = () => {
                 : ""
             } ${s.item}`}
           >
-            <svg width="20" height="20">
+            <svg width="32" height="32">
               <use href={`${sprite}#icon-${item.toLowerCase()}`}></use>
             </svg>
             <p>{item}</p>
@@ -83,7 +92,7 @@ const Filters = () => {
                 vehicleType.includes(vehicleTypeKey) ? s.selected : ""
               } ${s.item}`}
             >
-              <svg width="20" height="20">
+              <svg width="32" height="32">
                 <use
                   href={`${sprite}#icon-${vehicleTypeKey.replace(" ", "-")}`}
                 ></use>
@@ -95,7 +104,10 @@ const Filters = () => {
       </ul>
 
       <button
-        onClick={() => dispatch(applyFilters())}
+        onClick={() => {
+          dispatch(applyFilters());
+          toast.success("Filters applied");
+        }}
         className={s.searchButton}
       >
         Search

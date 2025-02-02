@@ -5,8 +5,8 @@
   gap: 24px;
 
   border-radius: 20px;
-  border: 1px solid var(--Gray-light, #dadde1);
-  background: var(--White, #fff);
+  border: 1px solid var(--light-gray);
+  background: var(--main-bg);
 }
 
 .header {
@@ -28,25 +28,21 @@
 }
 
 .title {
-  color: var(--Main, #101828);
-
-  /* H2 */
+  color: var(--primary-text);
 
   font-size: 24px;
   font-style: normal;
   font-weight: 600;
-  line-height: 32px; /* 133.333% */
+  line-height: 32px;
 }
 
 .price {
-  color: var(--Main, #101828);
-
-  /* H2 */
+  color: var(--primary-text);
 
   font-size: 24px;
   font-style: normal;
   font-weight: 600;
-  line-height: 32px; /* 133.333% */
+  line-height: 32px;
 }
 
 .iconHeartBtn {
@@ -66,43 +62,39 @@
 }
 
 .rating {
-  color: var(--Main, #101828);
+  color: var(--primary-text);
 
-  /* Body */
   display: flex;
   align-items: center;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
-  line-height: 24px; /* 150% */
+  line-height: 24px;
 }
 
 .icon {
-  width: 16px;
-  height: 16px;
+  width: 20px;
+  height: 20px;
 }
 
 .location {
-  color: var(--Main, #101828);
+  color: var(--primary-text);
 
-  /* Body */
   display: flex;
   align-items: center;
 
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
-  line-height: 24px; /* 150% */
+  line-height: 24px;
 }
 .description {
-  color: var(--Text, #475467);
-
-  /* Body */
+  color: var(--secondary-text);
 
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
-  line-height: 24px; /* 150% */
+  line-height: 24px;
 
   margin-bottom: 24px;
 }
@@ -115,20 +107,20 @@
 }
 
 .feature {
+  display: flex;
+  align-items: center;
   max-width: 160px;
   padding: 12px 18px;
   border-radius: 100px;
   background-color: var(--Badges, #f2f4f7);
 
-  color: var(--Main, #101828);
+  color: var(--primary-text);
   text-align: center;
-
-  /* Body 2 */
 
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
-  line-height: 24px; /* 150% */
+  line-height: 24px;
 }
 
 .showMoreButton {
@@ -139,8 +131,20 @@
   justify-content: center;
   align-items: center;
   gap: 10px;
-  color: #fff;
+  color: var(--main-bg);
 
   border-radius: 200px;
-  background: var(--Button, #e44848);
+  background: var(--btn-red-main);
+
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: -0.08px;
+
+  transition: background-color 0.3s ease, transform 0.2s ease;
+
+  &:hover {
+    background-color: var(--btn-red-hover);
+  }
 }

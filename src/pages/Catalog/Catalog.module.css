@@ -5,3 +5,16 @@
   margin-top: 48px;
   margin-bottom: 40px;
 }
+
+.notFound {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: var(--secondary-text);
+
+  font-size: 50px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+}

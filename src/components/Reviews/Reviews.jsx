@@ -1,10 +1,10 @@
 import { useSelector } from "react-redux";
-import { selectItems } from "../../redux/selectors";
+import { selectCamper } from "../../redux/selectors";
 import sprite from "../../assets/sprite.svg";
 import s from "./Reviews.module.css";
 
 const Reviews = () => {
-  const campers = useSelector(selectItems);
+  const { camper } = useSelector(selectCamper);
 
   const renderStars = (rating) => {
     const stars = [];
@@ -26,7 +26,7 @@ const Reviews = () => {
   return (
     <div>
       <ul className={s.reviewList}>
-        {campers?.reviews?.map((item, i) => (
+        {camper?.reviews?.map((item, i) => (
           <li key={i} className={s.reviewItem}>
             <div className={s.reviewContent}>
               <div className={s.avatar}>{item?.reviewer_name[0]}</div>

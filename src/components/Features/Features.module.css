@@ -1,5 +1,8 @@
 .container {
   padding: 44px;
+  background-color: var(--input-bg);
+  margin-top: 44px;
+  border-radius: 10px;
 }
 
 .icon {
@@ -26,16 +29,14 @@
 }
 
 .title {
-  color: var(--Main, #101828);
-
-  /* H3 */
+  color: var(--primary-text);
 
   font-size: 20px;
   font-style: normal;
   font-weight: 600;
-  line-height: 24px; /* 120% */
+  line-height: 24px;
   padding-bottom: 24px;
-  border-bottom: 1px solid #dadde1;
+  border-bottom: 1px solid var(--light-gray);
 }
 
 .details {

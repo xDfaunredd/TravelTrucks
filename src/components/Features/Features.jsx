@@ -1,12 +1,12 @@
 import { useSelector } from "react-redux";
-import { selectItems } from "../../redux/selectors";
+import { selectCamper } from "../../redux/selectors";
 import sprite from "../../assets/sprite.svg";
 import s from "./Features.module.css";
 
 const Features = () => {
-  const campers = useSelector(selectItems);
+  const { camper } = useSelector(selectCamper);
 
-  const features = Object.entries(campers || {})
+  const features = Object.entries(camper || {})
     .filter(([key, value]) =>
       key === "transmission" ? value === "automatic" : value === true
     )
@@ -20,7 +20,7 @@ const Features = () => {
             <svg className={s.icon}>
               <use href={`${sprite}#icon-${item.toLowerCase()}`} />
             </svg>
-            {item.charAt(0).toUpperCase() + item.slice(1)}
+            {item?.charAt(0).toUpperCase() + item.slice(1)}
           </li>
         ))}
       </ul>
@@ -30,28 +30,28 @@ const Features = () => {
         <ul className={s.detailList}>
           <li className={s.detailItem}>Form</li>
           <li className={s.detailValue}>
-            {campers?.form.charAt(0).toUpperCase() + campers?.form.slice(1)}
+            {camper?.form?.charAt(0)?.toUpperCase() + camper?.form?.slice(1)}
           </li>
         </ul>
         <ul className={s.detailList}>
           <li className={s.detailItem}>Length</li>
-          <li className={s.detailValue}>{campers?.length}</li>
+          <li className={s.detailValue}>{camper?.length}</li>
         </ul>
         <ul className={s.detailList}>
           <li className={s.detailItem}>Width</li>
-          <li className={s.detailValue}>{campers?.width}</li>
+          <li className={s.detailValue}>{camper?.width}</li>
         </ul>
         <ul className={s.detailList}>
           <li className={s.detailItem}>Height</li>
-          <li className={s.detailValue}>{campers?.height}</li>
+          <li className={s.detailValue}>{camper?.height}</li>
         </ul>
         <ul className={s.detailList}>
           <li className={s.detailItem}>Tank</li>
-          <li className={s.detailValue}>{campers?.tank}</li>
+          <li className={s.detailValue}>{camper?.tank}</li>
         </ul>
         <ul className={s.detailList}>
           <li className={s.detailItem}>Consumption</li>
-          <li className={s.detailValue}>{campers?.consumption}</li>
+          <li className={s.detailValue}>{camper?.consumption}</li>
         </ul>
       </div>
     </div>

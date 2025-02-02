@@ -12,7 +12,6 @@ export const getCampers = createAsyncThunk(
       const { data } = await itemsApi.get(
         `/campers?${params}&limit=4&page=${page}`
       );
-      console.log(data);
 
       return data;
     } catch (error) {

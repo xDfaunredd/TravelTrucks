@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import s from "./Header.module.css";
 import clsx from "clsx";
 const Header = () => {
@@ -10,7 +10,9 @@ const Header = () => {
     <header className={s.header}>
       <div className="container">
         <div className={s.wrapper}>
-          <h2>TravelTrucks</h2>
+          <Link to={"/"} className={s.title}>
+            TravelTrucks
+          </Link>
           <nav>
             <ul className={s.list}>
               <li>
@@ -25,7 +27,6 @@ const Header = () => {
               </li>
             </ul>
           </nav>
-          <span className={s.cart}></span>
         </div>
       </div>
     </header>

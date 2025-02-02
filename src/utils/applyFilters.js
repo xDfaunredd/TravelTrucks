@@ -22,6 +22,5 @@ export const applyFilters = () => (dispatch, getState) => {
     params.append("location", `Ukraine, ${location}`);
   }
 
-  console.log(params);
   dispatch(setParams(params.toString()));
 };

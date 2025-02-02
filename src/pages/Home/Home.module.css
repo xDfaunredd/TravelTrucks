@@ -20,7 +20,7 @@
 }
 
 .title {
-  color: var(--Inputs, #f7f7f7);
+  color: var(--input-bg);
 
   font-size: 48px;
   font-weight: 600;
@@ -28,7 +28,7 @@
 }
 
 .text {
-  color: var(--Inputs, #f7f7f7);
+  color: var(--input-bg);
   margin-top: 16px;
   font-size: 24px;
   font-weight: 600;
@@ -39,12 +39,17 @@
   padding: 16px 50px;
   width: 173px;
   border-radius: 200px;
-  background-color: var(--Button, #e44848);
-  color: var(--White, #fff);
+  background-color: var(--btn-red-main);
+  color: var(--main-bg);
 
   font-size: 16px;
   font-weight: 500;
   line-height: 24px;
   letter-spacing: -0.08px;
   margin-top: 40px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+
+  &:hover {
+    background-color: var(--btn-red-hover);
+  }
 }

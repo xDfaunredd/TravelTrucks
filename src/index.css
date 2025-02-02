@@ -4,6 +4,22 @@
   padding: 0;
 }
 
+:root {
+  --primary-gray: #6c717b;
+  --secondary-text: #475467;
+  --light-gray: #dadde1;
+  --input-bg: #f7f7f7;
+  --neutral-gray: #f2f4f7;
+  --yellow-star: #ffc531;
+  --btn-red-hover: #d84343;
+  --btn-red-main: #e44848;
+  --gray-bg: rgb(245, 250, 249);
+  --primary-text: #101828;
+  --main-bg: #ffffff;
+
+  font-family: "Inter", "sans-serif";
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -51,4 +67,6 @@ button {
 
 .container {
   padding: 0 64px;
+  max-width: 1440px;
+  margin: 0 auto;
 }

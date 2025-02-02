@@ -9,15 +9,15 @@
   margin-top: 8px;
   margin-bottom: 40px;
   flex-grow: 1;
-  padding: 18px 20px 18px 50px; /* Змістив текст через іконку */
-  background-color: #f7f7f7;
+  padding: 18px 20px 18px 50px;
+  background-color: var(--input-bg);
   border: none;
   border-radius: 5px;
   font-size: 16px;
   cursor: pointer;
   -webkit-appearance: none;
   -moz-appearance: none;
-  appearance: none; /* Прибирає стандартну стрілку */
+  appearance: none;
 }
 
 .selectIcon {
@@ -30,27 +30,25 @@
 }
 
 .filterType {
-  color: var(--Gray, #6c717b);
+  color: var(--primary-gray);
 
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
-  line-height: 24px; /* 150% */
+  line-height: 24px;
 }
 
 .vehicleType {
-  color: var(--Main, #101828);
-
-  /* H3 */
+  color: var(--primary-text);
 
   font-size: 20px;
   font-style: normal;
   font-weight: 600;
-  line-height: 24px; /* 120% */
+  line-height: 24px;
   padding-bottom: 24px;
   margin-bottom: 24px;
   margin-top: 32px;
-  border-bottom: 1px solid var(--Gray-light, #dadde1);
+  border-bottom: 1px solid var(--light-gray);
   width: 360px;
 }
 
@@ -67,12 +65,25 @@
   justify-content: center;
   align-items: center;
   gap: 10px;
-  color: #fff;
+  color: var(--main-bg);
 
   margin-top: 40px;
 
   border-radius: 200px;
-  background: var(--Button, #e44848);
+  background: var(--btn-red-main);
+
+  color: var(--White, #fff);
+
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: -0.08px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+
+  &:hover {
+    background-color: var(--btn-red-hover);
+  }
 }
 
 ul {
@@ -96,7 +107,8 @@ ul {
   justify-content: center;
   cursor: pointer;
   border-radius: 12px;
-  border: 1px solid var(--Gray-light, #dadde1);
+  border: 1px solid var(--light-gray);
+  text-align: center;
 
   padding: 16px 40px;
   width: 112px;
@@ -107,5 +119,5 @@ li svg {
 }
 
 .selected {
-  border: 1px solid var(--Button, #e44848);
+  border: 1px solid var(--btn-red-main);
 }

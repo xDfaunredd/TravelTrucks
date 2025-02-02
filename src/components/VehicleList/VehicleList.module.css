@@ -20,15 +20,14 @@
   width: 145px;
 
   border-radius: 200px;
-  border: 1px solid var(--Gray-light, #dadde1);
+  border: 1px solid var(--light-gray);
 
-  color: var(--Main, #101828);
+  color: var(--primary-text);
   cursor: pointer;
-  /* Button */
 
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
-  line-height: 24px; /* 150% */
+  line-height: 24px;
   letter-spacing: -0.08px;
 }

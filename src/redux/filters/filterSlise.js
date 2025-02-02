@@ -37,7 +37,6 @@ const filterSlice = createSlice({
       state.results = [];
       state.page = 1;
       state.params = action.payload;
-      console.log(state.params);
     },
   },
   extraReducers: (builder) => {
@@ -56,6 +55,8 @@ const filterSlice = createSlice({
         state.totalCamps = action.payload.total;
       })
       .addCase(getCampers.rejected, (state, action) => {
+        state.results = [];
+        state.totalCamps = 0;
         state.isLoading = false;
         state.error = action.payload;
       });
